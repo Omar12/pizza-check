@@ -17,28 +17,22 @@ jobs:
         run: npx playwright install chromium
       - name: Run Playwright tests
         run: npx playwright test
-#       - name: send telegram message on push
-#         uses: appleboy/telegram-action@master
       - name: Twilio SMS
         # You may pin to the exact commit or the version.
         # uses: twilio-labs/actions-sms@d1488bc77f2cc44182fb444073326ccc715103b0
         uses: twilio-labs/actions-sms@v1
-        with:
-          # Phone number in your Twilio account to send the SMS from
-          fromPhoneNumber: 
-          # Phone number to send the SMS to
-          toPhoneNumber: 
-          # The message you want to send
-          message: 
-          # A Twilio Account SID. Can alternatively be stored in environment
-          TWILIO_ACCOUNT_SID: 
-          # A Twilio API Key. Can alternatively be stored in environment
-          TWILIO_API_KEY: 
-          # A Twilio API Secret. Can alternatively be stored in environment
-          TWILIO_API_SECRET: 
         if: failure()
         with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: |
+          # Phone number in your Twilio account to send the SMS from
+          fromPhoneNumber: ${{ secrets.TWILIO_FROM_PHONE }}
+          # Phone number to send the SMS to
+          toPhoneNumber: ${{ secrets.TWILIO_TO_PHONE }}
+          # The message you want to send
+          message: /
            You Can Order Pizza! https://motoseattle.com/
+          # A Twilio Account SID. Can alternatively be stored in environment
+          TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
+          # A Twilio API Key. Can alternatively be stored in environment
+          TWILIO_API_KEY: ${{ secrets.TWILIO_API_KEY }}
+          # A Twilio API Secret. Can alternatively be stored in environment
+          TWILIO_API_SECRET: ${{ secrets.TWILIO_API_SECRET }}
