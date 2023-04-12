@@ -29,7 +29,7 @@ jobs:
           toPhoneNumber: ${{ secrets.TWILIO_TO_PHONE }}
           # The message you want to send
           message: /
-           You Can Order Pizza! https://motoseattle.com/
+           Order Pizza! 🍕 https://motoseattle.com/
           # A Twilio Account SID. Can alternatively be stored in environment
           TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
           # A Twilio API Key. Can alternatively be stored in environment
