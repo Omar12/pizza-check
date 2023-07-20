@@ -1,7 +1,7 @@
 name: Playwright Tests
 on:
   schedule:
-    - cron: "*/180 * * * *"
+    - cron: "*/720 * * * *"
 jobs:
   test:
     timeout-minutes: 60
@@ -29,7 +29,7 @@ jobs:
           toPhoneNumber: ${{ secrets.TWILIO_TO_PHONE }}
           # The message you want to send
           message: /
-           Order Pizza! 🍕 https://motoseattle.com/
+           Order Pizza! 🍕 https://order.toasttab.com/online/moto-4526-42nd-ave-sw
           # A Twilio Account SID. Can alternatively be stored in environment
           TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
           # A Twilio API Key. Can alternatively be stored in environment
